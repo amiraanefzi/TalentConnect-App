@@ -1,6 +1,7 @@
 package tn.iteam.authservice.web;
 
 import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ import tn.iteam.authservice.user.Role;
 import tn.iteam.authservice.user.RoleParser;
 import tn.iteam.authservice.user.User;
 import tn.iteam.authservice.user.UserService;
-import tn.iteam.authservice.user.dto.RegisterRequest;
+import tn.iteam.authservice.user.dto.AdminCreateUserRequest;
 import tn.iteam.authservice.user.dto.UpdateRolesRequest;
 import tn.iteam.authservice.user.dto.UserDto;
 
@@ -25,6 +26,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/admin/users")
 @PreAuthorize("hasRole('ADMIN')")
+@SecurityRequirement(name = "bearerAuth")
 public class AdminUserController {
     private final UserService userService;
 
@@ -38,8 +40,11 @@ public class AdminUserController {
     }
 
     @PostMapping
-    public UserDto create(@Valid @RequestBody RegisterRequest request) {
-        User user = userService.register(request.email(), request.password(), Set.of(Role.EMPLOYE));
+    public UserDto create(@Valid @RequestBody AdminCreateUserRequest request) {
+        Set<Role> roles = (request.roles() == null || request.roles().isEmpty())
+                ? Set.of(Role.EMPLOYE)
+                : request.roles().stream().map(RoleParser::parse).collect(Collectors.toSet());
+        User user = userService.register(request.email(), request.password(), roles);
         return toDto(user);
     }
 

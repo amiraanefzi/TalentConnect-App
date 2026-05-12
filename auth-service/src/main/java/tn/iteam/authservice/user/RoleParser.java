@@ -15,7 +15,7 @@ public final class RoleParser {
                 .replace('-', '_')
                 .toUpperCase();
 
-        if (normalized.equals("EMPLOYEE") || normalized.equals("EMPLOYE")) {
+        if (normalized.equals("EMPLOYEE") || normalized.equals("EMPLOYE") || normalized.equals("SALARIE")) {
             return Role.EMPLOYE;
         }
         if (normalized.equals("HR") || normalized.equals("RH")) {
@@ -27,4 +27,3 @@ public final class RoleParser {
         return Role.valueOf(normalized);
     }
 }
-
