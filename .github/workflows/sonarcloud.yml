@@ -35,6 +35,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: >
           ./mvnw -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-          -Dsonar.projectBaseDir=.
-
-
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.organization=amiraanefzi
+          -Dsonar.projectKey=TalentConnect-App
+          -Dsonar.coverage.jacoco.xmlReportPaths=auth-service/target/site/jacoco/jacoco.xml
