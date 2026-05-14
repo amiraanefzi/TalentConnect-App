@@ -32,7 +32,7 @@
         <sonar.organization>amiraanefzi</sonar.organization>
         <sonar.projectKey>TalentConnect-App</sonar.projectKey>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.login>amiraanefzi_TalentConnect-App</sonar.login>
+        <!-- Token provided via SONAR_LOGIN environment variable or -Dsonar.login=TOKEN -->
     </properties>
     <dependencies>
         <dependency>

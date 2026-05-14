@@ -31,3 +31,13 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Security - Never commit credentials ###
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+settings.xml
+sonar-project.properties.local
+

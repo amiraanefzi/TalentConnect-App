@@ -28,10 +28,10 @@
     </scm>
     <properties>
         <java.version>21</java.version>
-            <sonar.organization>amiraanefzi</sonar.organization>
-            <sonar.projectKey>TalentConnect-App</sonar.projectKey>
-            <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-            <sonar.login>amiraanefzi_TalentConnect-App</sonar.login>
+        <sonar.organization>amiraanefzi</sonar.organization>
+        <sonar.projectKey>TalentConnect-App</sonar.projectKey>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <!-- Token provided via SONAR_LOGIN environment variable or -Dsonar.login=TOKEN -->
     </properties>
     <dependencies>
         <dependency>
