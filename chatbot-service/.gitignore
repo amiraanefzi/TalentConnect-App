@@ -15,18 +15,14 @@ buildNumber.properties
 *.iml
 *.iws
 *.ipr
-*.class
+
+# Logs and runtime
+logs/
+*.log
+spring.log*
+tmp/
+temp/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Application
-logs/
-spring.log*
-*.log
-
-# Runtime
-tmp/
-temp/
-
