@@ -1,20 +1,19 @@
 package tn.iteam.chatbotservice;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ApplicationContext;
 import tn.iteam.chatbotservice.engine.ChatbotEngine;
 import tn.iteam.chatbotservice.engine.BotReply;
 import java.util.Scanner;
 
 /**
- * Wrapper interactif pour tester le chatbot en ligne de commande
- * Lancez avec: mvn -Dtest=InteractiveChatbotTest test
+ * Wrapper interactif pour tester le chatbot en ligne de commande (moteur seul, sans base de donnees).
+ * Compilez puis lancez avec:
+ *   ./mvnw -o test-compile
+ *   java -cp "target/test-classes;target/classes" tn.iteam.chatbotservice.InteractiveChatbotTest
  */
 public class InteractiveChatbotTest {
 
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(ChatbotServiceApplication.class, args);
-        ChatbotEngine engine = context.getBean(ChatbotEngine.class);
+        ChatbotEngine engine = new ChatbotEngine();
 
         System.out.println("\n");
         System.out.println("╔════════════════════════════════════════════════════╗");

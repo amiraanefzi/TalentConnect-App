@@ -34,8 +34,46 @@ public class FuzzyMatcher {
         }
 
         int maxLen = Math.max(s1.length(), s2.length());
-        int distance = levenshteinDistance(s1, s2);
+        int distance = damerauLevenshteinDistance(s1, s2);
         return (int) ((1.0 - (double) distance / maxLen) * 100);
+    }
+
+    /**
+     * Length-adaptive fuzzy match tuned for keyword/typo detection.
+     * Allows a bounded number of edits (including adjacent letter swaps)
+     * relative to the reference word length, which avoids false positives
+     * on short words while staying tolerant on longer ones.
+     *
+     * @param input   token coming from the user message
+     * @param keyword reference keyword to match against
+     * @return true when {@code input} is a close misspelling of {@code keyword}
+     */
+    public static boolean isFuzzyMatch(String input, String keyword) {
+        if (input == null || keyword == null) {
+            return false;
+        }
+        String a = input.toLowerCase(Locale.ROOT);
+        String b = keyword.toLowerCase(Locale.ROOT);
+        if (a.equals(b)) {
+            return true;
+        }
+
+        int len = b.length();
+        int allowed;
+        if (len < 4) {
+            allowed = 0;          // short words must match exactly (avoids false positives)
+        } else if (len <= 6) {
+            allowed = 1;          // medium words tolerate one edit
+        } else {
+            allowed = 2;          // long words tolerate two edits
+        }
+        if (allowed == 0) {
+            return false;
+        }
+        if (Math.abs(a.length() - len) > allowed) {
+            return false;
+        }
+        return damerauLevenshteinDistance(a, b) <= allowed;
     }
 
     /**
@@ -123,6 +161,56 @@ public class FuzzyMatcher {
                         ),
                         dp[i - 1][j - 1] + cost    // substitution
                 );
+            }
+        }
+
+        return dp[len1][len2];
+    }
+
+    /**
+     * Calculate the Damerau-Levenshtein distance (optimal string alignment).
+     * Unlike plain Levenshtein, it treats an adjacent character transposition
+     * (e.g. "bonjuor" vs "bonjour") as a single edit, which matches very common
+     * typing mistakes.
+     *
+     * @param s1 first string
+     * @param s2 second string
+     * @return edit distance
+     */
+    public static int damerauLevenshteinDistance(String s1, String s2) {
+        int len1 = s1.length();
+        int len2 = s2.length();
+        if (len1 == 0) {
+            return len2;
+        }
+        if (len2 == 0) {
+            return len1;
+        }
+
+        int[][] dp = new int[len1 + 1][len2 + 1];
+        for (int i = 0; i <= len1; i++) {
+            dp[i][0] = i;
+        }
+        for (int j = 0; j <= len2; j++) {
+            dp[0][j] = j;
+        }
+
+        for (int i = 1; i <= len1; i++) {
+            for (int j = 1; j <= len2; j++) {
+                int cost = s1.charAt(i - 1) == s2.charAt(j - 1) ? 0 : 1;
+                dp[i][j] = Math.min(
+                        Math.min(
+                                dp[i - 1][j] + 1,      // deletion
+                                dp[i][j - 1] + 1       // insertion
+                        ),
+                        dp[i - 1][j - 1] + cost        // substitution
+                );
+                // adjacent transposition
+                if (i > 1 && j > 1
+                        && s1.charAt(i - 1) == s2.charAt(j - 2)
+                        && s1.charAt(i - 2) == s2.charAt(j - 1)) {
+                    dp[i][j] = Math.min(dp[i][j], dp[i - 2][j - 2] + 1);
+                }
             }
         }
 

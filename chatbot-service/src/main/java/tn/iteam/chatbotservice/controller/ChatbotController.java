@@ -28,7 +28,7 @@ import java.util.List;
 @Validated
 @RestController
 @RequestMapping("/api/chatbot")
-@CrossOrigin(origins = "${chatbot.cors.allowed-origins:*}")
+@CrossOrigin(origins = "${chatbot.cors.allowed-origins:http://localhost:4200}")
 public class ChatbotController {
 
     private final ChatbotService chatbotService;

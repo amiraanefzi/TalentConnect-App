@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<flow-definition plugin="workflow-job@1346.v0a_a_8490b_4134">
+  <actions/>
+  <description>TalentConnect-App Pipeline</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@3933.v8e4a_324da_f0c">
+    <scm class="hudson.plugins.git.GitSCM" plugin="git@5.2.2">
+      <configVersion>2</configVersion>
+      <userRemoteConfigs>
+        <hudson.plugins.git.UserRemoteConfig>
+          <url>https://github.com/amiraanefzi/TalentConnect-App.git</url>
+        </hudson.plugins.git.UserRemoteConfig>
+      </userRemoteConfigs>
+      <branches>
+        <hudson.plugins.git.BranchSpec>
+          <name>*/main</name>
+        </hudson.plugins.git.BranchSpec>
+      </branches>
+    </scm>
+    <scriptPath>Jenkinsfile</scriptPath>
+    <lightweight>true</lightweight>
+  </definition>
+  <triggers>
+    <com.cloudbees.plugins.github.push.GitHubPushTrigger plugin="github@1.38.3">
+      <spec></spec>
+    </com.cloudbees.plugins.github.push.GitHubPushTrigger>
+  </triggers>
+  <disabled>false</disabled>
+  <properties/>
+  <options>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers>
+        <com.cloudbees.plugins.github.push.GitHubPushTrigger plugin="github@1.38.3">
+          <spec></spec>
+        </com.cloudbees.plugins.github.push.GitHubPushTrigger>
+      </triggers>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </options>
+</flow-definition>
