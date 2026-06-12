@@ -124,8 +124,7 @@ class ChatbotEngineSpellToleranceTest {
         BotReply reply2 = engine.replyTo("suport");     // missing 'p'
         assertEquals("support", reply2.intent());
 
-        BotReply reply3 = engine.replyTo("aid");        // help/aide shortened
-        // May not match depending on threshold, but aide should
+        // "aid" may not match depending on threshold, but "aide" should
         BotReply reply4 = engine.replyTo("aide");
         assertEquals("support", reply4.intent());
     }
@@ -152,7 +151,7 @@ class ChatbotEngineSpellToleranceTest {
         BotReply reply = engine.replyTo("xyzabc dfghijk");
         assertEquals("fallback", reply.intent());
         assertNotNull(reply.message());
-        assertTrue(reply.message().length() > 0);
+        assertFalse(reply.message().isEmpty());
     }
 
     @Test

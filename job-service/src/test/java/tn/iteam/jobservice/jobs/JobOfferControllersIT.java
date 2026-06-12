@@ -192,11 +192,13 @@ class JobOfferControllersIT {
         String secret = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";
         SecretKey key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
 
-        Instant now = Instant.now();
+        // Fixed validity window keeps the token deterministic and avoids relying on the system clock.
+        Instant issuedAt = Instant.parse("2024-01-01T00:00:00Z");
+        Instant expiration = Instant.parse("2999-01-01T00:00:00Z");
         return Jwts.builder()
                 .subject(subject)
-                .issuedAt(Date.from(now))
-                .expiration(Date.from(now.plusSeconds(3600)))
+                .issuedAt(Date.from(issuedAt))
+                .expiration(Date.from(expiration))
                 .claim("roles", roles)
                 .signWith(key, Jwts.SIG.HS256)
                 .compact();

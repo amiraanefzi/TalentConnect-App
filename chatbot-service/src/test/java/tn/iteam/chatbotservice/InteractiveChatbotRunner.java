@@ -8,9 +8,9 @@ import java.util.Scanner;
  * Wrapper interactif pour tester le chatbot en ligne de commande (moteur seul, sans base de donnees).
  * Compilez puis lancez avec:
  *   ./mvnw -o test-compile
- *   java -cp "target/test-classes;target/classes" tn.iteam.chatbotservice.InteractiveChatbotTest
+ *   java -cp "target/test-classes;target/classes" tn.iteam.chatbotservice.InteractiveChatbotRunner
  */
-public class InteractiveChatbotTest {
+public class InteractiveChatbotRunner {
 
     public static void main(String[] args) {
         ChatbotEngine engine = new ChatbotEngine();
