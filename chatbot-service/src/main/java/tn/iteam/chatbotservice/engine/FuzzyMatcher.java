@@ -11,6 +11,10 @@ public class FuzzyMatcher {
     // Threshold for fuzzy matching (0-100, higher = stricter)
     private static final int DEFAULT_THRESHOLD = 70;
 
+    private FuzzyMatcher() {
+        // Utility class - prevent instantiation
+    }
+
     /**
      * Calculate similarity percentage between two strings using Levenshtein distance
      * @param str1 first string

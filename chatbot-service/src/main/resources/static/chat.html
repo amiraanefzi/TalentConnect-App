@@ -190,7 +190,7 @@
     </form>
 </main>
 
-<script>
+<script type="module">
     const statusEl = document.querySelector("#status");
     const messagesEl = document.querySelector("#messages");
     const form = document.querySelector("#chat-form");
@@ -215,6 +215,7 @@
             const health = await response.json();
             statusEl.textContent = health.status;
         } catch (error) {
+            console.error("Health check failed:", error);
             statusEl.textContent = "OFFLINE";
             addMessage("Le service ne repond pas. Verifiez que Spring Boot est demarre.", "error");
         }
@@ -256,7 +257,7 @@
         }
     });
 
-    checkHealth();
+    await checkHealth();
     messageEl.focus();
 </script>
 </body>
