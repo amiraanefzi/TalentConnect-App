@@ -146,7 +146,7 @@ public class CandidatureService {
 
 	private Pageable pageable(int page, int size) {
 		int safePage = Math.max(page, 0);
-		int safeSize = Math.min(Math.max(size, 1), 100);
+		int safeSize = Math.clamp(size, 1, 100);
 		return PageRequest.of(safePage, safeSize, Sort.by(Sort.Direction.DESC, "createdAt"));
 	}
 }

@@ -14,5 +14,7 @@ class CandidaturesServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// Vérifie que le contexte Spring Boot se charge sans erreur.
+		// Aucune assertion nécessaire : un échec de démarrage lèverait une exception.
 	}
 }
