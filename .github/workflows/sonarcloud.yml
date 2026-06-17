@@ -40,5 +40,4 @@ jobs:
           ./mvnw -B sonar:sonar --no-transfer-progress \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.organization=amiraanefzi \
-            -Dsonar.projectKey=TalentConnect-App \
-            -Dsonar.coverage.jacoco.xmlReportPaths=auth-service/target/site/jacoco/jacoco.xml,candidatures-service/target/site/jacoco/jacoco.xml,chatbot-service/target/site/jacoco/jacoco.xml,job-service/target/site/jacoco/jacoco.xml
+            -Dsonar.projectKey=TalentConnect-App
