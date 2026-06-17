@@ -12,9 +12,11 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>job-service</artifactId>
-    <name>TalentConnect :: Job Service</name>
-    <description>Service de gestion des offres d'emploi</description>
+    <!-- groupId explicite car différent du parent -->
+    <groupId>com.talentconnect</groupId>
+    <artifactId>candidatures-service</artifactId>
+    <name>TalentConnect :: Candidatures Service</name>
+    <description>Service de gestion des candidatures</description>
 
     <dependencies>
 
@@ -34,6 +36,14 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
@@ -50,18 +60,10 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <!-- ── JWT (versions gérées par le parent) ────────────────── -->
+        <!-- ── Messaging ──────────────────────────────────────────── -->
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-impl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-jackson</artifactId>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
         </dependency>
 
         <!-- ── Documentation API ──────────────────────────────────── -->
@@ -76,12 +78,6 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
 
         <!-- ── Tests ──────────────────────────────────────────────── -->
         <dependency>
@@ -92,6 +88,11 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
             <scope>test</scope>
         </dependency>
 
