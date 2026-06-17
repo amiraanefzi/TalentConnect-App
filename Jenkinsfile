@@ -1,89 +1,151 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.10.2-eclipse-temurin-17'
+            // Image Maven avec Java 21 (correspondant au parent pom)
+            image 'maven:3.9-eclipse-temurin-21'
             args '-v /root/.m2:/root/.m2'
         }
     }
+
     environment {
-        MAVEN_OPTS = '-Dmaven.repo.local=.m2/repository'
+        MAVEN_OPTS    = '-Dmaven.repo.local=.m2/repository'
+        DOCKERHUB_USER = 'amiraanefzi'
+        IMAGE_PREFIX   = 'amiraanefzi'
     }
+
     stages {
+
         stage('Checkout') {
+            steps { checkout scm }
+        }
+
+        // ── Build multi-module depuis la racine (UN seul appel Maven) ──
+        stage('Build') {
             steps {
-                checkout scm
+                sh './mvnw -B -DskipTests clean package'
             }
         }
-        stage('Build Root App') {
-            steps {
-                script {
-                    if (isUnix()) {
-                        sh './mvnw -B -DskipTests clean package'
-                    } else {
-                        bat 'mvnw -B -DskipTests clean package'
-                    }
-                }
-            }
-        }
-        stage('Build Services') {
-            parallel {
-                stage('Auth Service') {
-                    steps {
-                        script {
-                            if (isUnix()) {
-                                sh './mvnw -B -f auth-service/pom.xml -DskipTests clean package'
-                            } else {
-                                bat 'mvnw -B -f auth-service/pom.xml -DskipTests clean package'
-                            }
-                        }
-                    }
-                }
-                stage('Chatbot Service') {
-                    steps {
-                        script {
-                            if (isUnix()) {
-                                sh './mvnw -B -f chatbot-service/pom.xml -DskipTests clean package'
-                            } else {
-                                bat 'mvnw -B -f chatbot-service/pom.xml -DskipTests clean package'
-                            }
-                        }
-                    }
-                }
-                stage('Job Service') {
-                    steps {
-                        script {
-                            if (isUnix()) {
-                                sh './mvnw -B -f job-service/pom.xml -DskipTests clean package'
-                            } else {
-                                bat 'mvnw -B -f job-service/pom.xml -DskipTests clean package'
-                            }
-                        }
-                    }
-                }
-            }
-        }
+
+        // ── Tests de chaque service (en parallèle) ────────────────────
         stage('Test') {
+            parallel {
+                stage('auth-service') {
+                    steps {
+                        sh './mvnw -B -pl auth-service test'
+                    }
+                    post {
+                        always {
+                            junit allowEmptyResults: true,
+                                  testResults: 'auth-service/target/surefire-reports/*.xml'
+                        }
+                    }
+                }
+                stage('candidatures-service') {
+                    steps {
+                        sh './mvnw -B -pl candidatures-service test'
+                    }
+                    post {
+                        always {
+                            junit allowEmptyResults: true,
+                                  testResults: 'candidatures-service/target/surefire-reports/*.xml'
+                        }
+                    }
+                }
+                stage('chatbot-service') {
+                    steps {
+                        sh './mvnw -B -pl chatbot-service test'
+                    }
+                    post {
+                        always {
+                            junit allowEmptyResults: true,
+                                  testResults: 'chatbot-service/target/surefire-reports/*.xml'
+                        }
+                    }
+                }
+                stage('job-service') {
+                    steps {
+                        sh './mvnw -B -pl job-service test'
+                    }
+                    post {
+                        always {
+                            junit allowEmptyResults: true,
+                                  testResults: 'job-service/target/surefire-reports/*.xml'
+                        }
+                    }
+                }
+            }
+        }
+
+        // ── Analyse SonarCloud ────────────────────────────────────────
+        stage('SonarCloud') {
+            when { branch 'main' }
+            steps {
+                withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                    sh """
+                        ./mvnw -B verify sonar:sonar \\
+                          -Dsonar.host.url=https://sonarcloud.io \\
+                          -Dsonar.organization=amiraanefzi \\
+                          -Dsonar.projectKey=TalentConnect-App \\
+                          -Dsonar.login=\${SONAR_TOKEN}
+                    """
+                }
+            }
+        }
+
+        // ── Docker Build (tous les services en parallèle) ─────────────
+        stage('Docker Build') {
+            when { branch 'main' }
+            parallel {
+                stage('auth-service') {
+                    steps {
+                        sh "docker build -f auth-service/Containerfile -t ${IMAGE_PREFIX}/auth-service:latest -t ${IMAGE_PREFIX}/auth-service:${env.BUILD_NUMBER} ."
+                    }
+                }
+                stage('candidatures-service') {
+                    steps {
+                        sh "docker build -f candidatures-service/Containerfile -t ${IMAGE_PREFIX}/candidatures-service:latest -t ${IMAGE_PREFIX}/candidatures-service:${env.BUILD_NUMBER} ."
+                    }
+                }
+                stage('chatbot-service') {
+                    steps {
+                        sh "docker build -f chatbot-service/Containerfile -t ${IMAGE_PREFIX}/chatbot-service:latest -t ${IMAGE_PREFIX}/chatbot-service:${env.BUILD_NUMBER} ."
+                    }
+                }
+                stage('job-service') {
+                    steps {
+                        sh "docker build -f job-service/Containerfile -t ${IMAGE_PREFIX}/job-service:latest -t ${IMAGE_PREFIX}/job-service:${env.BUILD_NUMBER} ."
+                    }
+                }
+            }
+        }
+
+        // ── Docker Push vers Docker Hub ───────────────────────────────
+        stage('Docker Push') {
+            when { branch 'main' }
             steps {
                 script {
-                    if (isUnix()) {
-                        sh './mvnw -B test'
-                    } else {
-                        bat 'mvnw -B test'
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
+                        ['auth-service', 'candidatures-service', 'chatbot-service', 'job-service'].each { svc ->
+                            sh "docker push ${IMAGE_PREFIX}/${svc}:latest"
+                            sh "docker push ${IMAGE_PREFIX}/${svc}:${env.BUILD_NUMBER}"
+                        }
                     }
                 }
             }
         }
     }
+
     post {
         always {
-            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true, allowEmptyArchive: true
-            junit allowEmptyResults: true, testResults: '**/target/surefire-reports/*.xml'
+            archiveArtifacts artifacts: '**/target/*.jar',
+                             fingerprint: true,
+                             allowEmptyArchive: true
         }
         success {
-            echo 'Jenkins pipeline completed successfully.'
+            echo '✅ Pipeline Jenkins terminé avec succès.'
         }
         failure {
-            echo 'Jenkins pipeline failed. Check the build logs for details.'
+            echo '❌ Pipeline Jenkins échoué. Consultez les logs.'
         }
     }
 }

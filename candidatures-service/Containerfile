@@ -1,0 +1,21 @@
+# ── Build stage ──────────────────────────────────────────────────────
+FROM maven:3.9-eclipse-temurin-21 AS build
+WORKDIR /workspace
+
+# Copie du parent POM (nécessaire pour le multi-module)
+COPY pom.xml /workspace/pom.xml
+
+# Copie uniquement du module candidatures-service
+COPY candidatures-service/pom.xml /workspace/candidatures-service/pom.xml
+COPY candidatures-service/src     /workspace/candidatures-service/src
+
+# Build du module depuis la racine (hérite du parent)
+RUN mvn -B -DskipTests -pl candidatures-service -am package
+
+# ── Runtime stage ─────────────────────────────────────────────────────
+FROM eclipse-temurin:21-jre-jammy
+WORKDIR /app
+COPY --from=build /workspace/candidatures-service/target/candidatures-service-1.0.0-SNAPSHOT.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
