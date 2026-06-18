@@ -1,0 +1,136 @@
+# ============================================================
+# TalentConnect – Docker Compose (développement local)
+# ============================================================
+# Prérequis : Docker Desktop installé
+# Usage     : docker compose up --build
+# ============================================================
+
+version: "3.9"
+
+services:
+
+  # ── Infrastructure ────────────────────────────────────────
+
+  mysql:
+    image: mysql:8.0
+    container_name: tc-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # ── auth-service (port 8081) ──────────────────────────────
+
+  auth-service:
+    build:
+      context: .
+      dockerfile: auth-service/Containerfile
+    container_name: tc-auth
+    ports:
+      - "8081:8081"
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/talentconnect_auth?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      APP_JWT_SECRET: dev-local-only-secret-change-in-prod-32ch
+      APP_BOOTSTRAP_ADMIN_PASSWORD: Admin@Dev123
+      SPRING_PROFILES_ACTIVE: dev
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # ── job-service (port 8080) ───────────────────────────────
+
+  job-service:
+    build:
+      context: .
+      dockerfile: job-service/Containerfile
+    container_name: tc-jobs
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/talentconnect_jobs?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      APP_JWT_SECRET: dev-local-only-secret-change-in-prod-32ch
+      SPRING_PROFILES_ACTIVE: dev
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # ── candidatures-service (port 8084) ─────────────────────
+
+  candidatures-service:
+    build:
+      context: .
+      dockerfile: candidatures-service/Containerfile
+    container_name: tc-candidatures
+    ports:
+      - "8084:8084"
+    environment:
+      # MySQL en prod (remplace H2 par défaut)
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/candidatures_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SPRING_FLYWAY_LOCATIONS: classpath:db/migration/mysql
+      SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+    depends_on:
+      mysql:
+        condition: service_healthy
+    # NOTE: file-service n'est pas encore implémenté.
+    # L'endpoint PATCH /api/candidatures/{id}/cv retournera une erreur 503 tant
+    # que file-service n'est pas disponible.
+
+  # ── file-service (port 8082) ─────────────────────────────
+  # Requis par candidatures-service pour valider les CVs uploadés
+
+  file-service:
+    build:
+      context: .
+      dockerfile: file-service/Containerfile
+    container_name: tc-files
+    ports:
+      - "8082:8082"
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/talentconnect_files?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      FILE_STORAGE_PATH: /app/uploads
+    volumes:
+      - file_uploads:/app/uploads
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # ── chatbot-service (port 8083) ───────────────────────────
+
+  chatbot-service:
+    build:
+      context: .
+      dockerfile: chatbot-service/Containerfile
+    container_name: tc-chatbot
+    ports:
+      - "8083:8083"
+    environment:
+      CHATBOT_DATASOURCE_URL: jdbc:mysql://mysql:3306/talent_connect_chatbot?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      CHATBOT_DATASOURCE_USERNAME: root
+      CHATBOT_DATASOURCE_PASSWORD: root
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
+  file_uploads:
+
+
+

@@ -32,6 +32,7 @@
         <module>candidatures-service</module>
         <module>chatbot-service</module>
         <module>job-service</module>
+        <module>file-service</module>
     </modules>
 
     <!-- ================================================================

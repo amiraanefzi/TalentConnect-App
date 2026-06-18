@@ -41,3 +41,6 @@ build/
 settings.xml
 sonar-project.properties.local
 
+
+# talentconnect-backend build
+talentconnect-backend/target/

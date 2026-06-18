@@ -1,0 +1,18 @@
+# ── Build stage ──────────────────────────────────────────────────────
+FROM maven:3.9-eclipse-temurin-21 AS build
+WORKDIR /workspace
+
+COPY pom.xml /workspace/pom.xml
+COPY file-service/pom.xml /workspace/file-service/pom.xml
+COPY file-service/src     /workspace/file-service/src
+
+RUN mvn -B -DskipTests -pl file-service -am package
+
+# ── Runtime stage ─────────────────────────────────────────────────────
+FROM eclipse-temurin:21-jre-jammy
+WORKDIR /app
+RUN mkdir -p /app/uploads
+COPY --from=build /workspace/file-service/target/file-service-1.0.0-SNAPSHOT.jar app.jar
+EXPOSE 8082
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
