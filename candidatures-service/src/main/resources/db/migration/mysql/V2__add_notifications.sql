@@ -1,0 +1,15 @@
+-- V2 : Ajout table notifications
+CREATE TABLE notifications (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    type VARCHAR(15) NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    message TEXT,
+    is_read BOOLEAN NOT NULL DEFAULT FALSE,
+    deep_link VARCHAR(500),
+    created_at TIMESTAMP NOT NULL
+);
+
+CREATE INDEX idx_notifications_user_id ON notifications (user_id);
+CREATE INDEX idx_notifications_is_read ON notifications (is_read);
+

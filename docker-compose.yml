@@ -47,7 +47,7 @@ services:
       mysql:
         condition: service_healthy
 
-  # ── job-service (port 8080) ───────────────────────────────
+  # ── job-service (port 8085) ───────────────────────────────
 
   job-service:
     build:
@@ -55,7 +55,7 @@ services:
       dockerfile: job-service/Containerfile
     container_name: tc-jobs
     ports:
-      - "8080:8080"
+      - "8085:8085"
     environment:
       DB_URL: jdbc:mysql://mysql:3306/talentconnect_jobs?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       DB_USERNAME: root

@@ -40,10 +40,16 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        // Job offers consultation: EMPLOYE/RH/ADMIN
-                        .requestMatchers(HttpMethod.GET, "/api/jobs/**").hasAnyAuthority("ROLE_EMPLOYE", "ROLE_RH", "ROLE_ADMIN")
+                        // Job offers consultation: public (offres publiées) + interne sans auth
+                        .requestMatchers(HttpMethod.GET, "/api/jobs/**").permitAll()
                         // Job offers CRUD: RH/Admin only
                         .requestMatchers("/api/admin/jobs/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_RH")
+                        // Referrals: all authenticated
+                        .requestMatchers("/api/referrals/**").hasAnyAuthority("ROLE_EMPLOYE", "ROLE_RH", "ROLE_ADMIN")
+                        // Audit: RH/ADMIN only
+                        .requestMatchers("/api/audit/**").hasAnyAuthority("ROLE_RH", "ROLE_ADMIN")
+                        // HR Metrics
+                        .requestMatchers("/api/hr/**").hasAnyAuthority("ROLE_RH", "ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

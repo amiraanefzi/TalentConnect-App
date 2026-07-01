@@ -41,17 +41,20 @@ public class CandidatureService {
 	private final CandidatureMapper mapper;
 	private final ApplicationEventPublisher eventPublisher;
 	private final FileServiceGateway fileServiceGateway;
+	private final NotificationService notificationService;
 
 	public CandidatureService(CandidatureRepository candidatureRepository,
 			CandidatureStatusHistoryRepository historyRepository,
 			CandidatureMapper mapper,
 			ApplicationEventPublisher eventPublisher,
-			FileServiceGateway fileServiceGateway) {
+			FileServiceGateway fileServiceGateway,
+			NotificationService notificationService) {
 		this.candidatureRepository = candidatureRepository;
 		this.historyRepository = historyRepository;
 		this.mapper = mapper;
 		this.eventPublisher = eventPublisher;
 		this.fileServiceGateway = fileServiceGateway;
+		this.notificationService = notificationService;
 	}
 
 	@Transactional
@@ -65,6 +68,17 @@ public class CandidatureService {
 		eventPublisher.publishEvent(new CandidateAppliedEvent(candidature.getId(), candidature.getOfferId(),
 				candidature.getApplicantUserId(), candidature.getType(), candidature.getCreatedAt()));
 		log.info("Candidature {} created for applicant {} and offer {}", candidature.getId(), applicantUserId, offerId);
+
+		// 🔔 Notification broadcast RH : nouvelle candidature à traiter
+		String rhTitle   = "Nouvelle candidature reçue";
+		String rhMessage = "L'utilisateur #" + applicantUserId + " a soumis une candidature "
+				+ type.name() + " pour l'offre #" + offerId
+				+ " (candidature #" + candidature.getId() + ")";
+		String rhLink    = "/rh/candidatures/" + candidature.getId();
+		notificationService.pushToRh(
+				com.talentconnect.candidatures.domain.Notification.NotifType.INFO,
+				rhTitle, rhMessage, rhLink);
+
 		return mapper.toResponse(candidature);
 	}
 
@@ -106,7 +120,26 @@ public class CandidatureService {
 		candidature.changeStatus(newStatus);
 		historyRepository.save(new CandidatureStatusHistory(id, oldStatus, newStatus, rhUserId, ROLE_RH));
 		log.info("Candidature {} status changed from {} to {} by RH {}", id, oldStatus, newStatus, rhUserId);
+
+		// 🔔 Notification au candidat
+		String title   = "Statut de votre candidature mis à jour";
+		String message = "Votre candidature #" + id + " est maintenant : " + newStatus.name();
+		String link    = "/candidatures/" + id;
+		notificationService.push(candidature.getApplicantUserId(),
+				com.talentconnect.candidatures.domain.Notification.NotifType.INFO,
+				title, message, link);
+
 		return mapper.toResponse(candidature);
+	}
+
+	@Transactional
+	public void deleteCandidature(Long id, Long requesterUserId) {
+		Candidature candidature = findCandidature(id);
+		if (!candidature.getApplicantUserId().equals(requesterUserId)) {
+			throw new ForbiddenException("Seul le proprietaire peut retirer sa candidature");
+		}
+		candidatureRepository.deleteById(id);
+		log.info("Candidature {} deleted by applicant {}", id, requesterUserId);
 	}
 
 	@Transactional

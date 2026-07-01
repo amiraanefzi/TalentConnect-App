@@ -33,6 +33,7 @@ class CandidatureServiceTest {
 	private CandidatureStatusHistoryRepository historyRepository;
 	private ApplicationEventPublisher eventPublisher;
 	private FileServiceGateway fileServiceGateway;
+	private NotificationService notificationService;
 	private CandidatureService service;
 
 	@BeforeEach
@@ -41,8 +42,9 @@ class CandidatureServiceTest {
 		historyRepository = org.mockito.Mockito.mock(CandidatureStatusHistoryRepository.class);
 		eventPublisher = org.mockito.Mockito.mock(ApplicationEventPublisher.class);
 		fileServiceGateway = org.mockito.Mockito.mock(FileServiceGateway.class);
+		notificationService = org.mockito.Mockito.mock(NotificationService.class);
 		service = new CandidatureService(candidatureRepository, historyRepository, new CandidatureMapper(),
-					eventPublisher, fileServiceGateway);
+					eventPublisher, fileServiceGateway, notificationService);
 	}
 
 	@Test

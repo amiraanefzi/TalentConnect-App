@@ -21,15 +21,21 @@ public class CandidateAppliedKafkaProducer {
 	}
 
 	public void send(CandidateAppliedPayload payload) {
-		kafkaTemplate.send(topic, String.valueOf(payload.candidatureId()), payload)
-				.whenComplete((result, exception) -> {
-					if (exception != null) {
-						log.error("Failed to publish CandidateApplied for candidature {}", payload.candidatureId(),
-								exception);
-					}
-					else {
-						log.info("Published CandidateApplied for candidature {}", payload.candidatureId());
-					}
-				});
+		try {
+			kafkaTemplate.send(topic, String.valueOf(payload.candidatureId()), payload)
+					.whenComplete((result, exception) -> {
+						if (exception != null) {
+							log.error("Failed to publish CandidateApplied for candidature {} (Kafka unavailable — event skipped)",
+									payload.candidatureId(), exception);
+						}
+						else {
+							log.info("Published CandidateApplied for candidature {}", payload.candidatureId());
+						}
+					});
+		} catch (Exception ex) {
+			// Kafka indisponible en dev local : on logue et on continue sans faire échouer la requête HTTP
+			log.error("Kafka send threw synchronous exception for candidature {} — event skipped",
+					payload.candidatureId(), ex);
+		}
 	}
 }

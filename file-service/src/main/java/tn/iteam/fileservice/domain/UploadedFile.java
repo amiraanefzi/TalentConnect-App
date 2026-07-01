@@ -37,7 +37,7 @@ public class UploadedFile {
     private Instant uploadedAt;
 
     @PrePersist
-    void prePersist() {
+    public void prePersist() {
         this.uploadedAt = Instant.now();
     }
 }

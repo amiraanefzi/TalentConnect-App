@@ -1,0 +1,12 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2026-07-01T15:03:44.263+01:00  INFO 28832 --- [chatbot-service] [           main] t.i.c.ChatbotServiceApplication          : Starting ChatbotServiceApplication v1.0.0-SNAPSHOT using Java 25.0.2 with PID 28832 (C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App\chatbot-service\target\chatbot-service-1.0.0-SNAPSHOT.jar started by hyahyaoui in C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App)
+2026-07-01T15:03:44.267+01:00  INFO 28832 --- [chatbot-service] [           main] t.i.c.ChatbotServiceApplication          : No active profile set, falling back to 1 default profile: "default"

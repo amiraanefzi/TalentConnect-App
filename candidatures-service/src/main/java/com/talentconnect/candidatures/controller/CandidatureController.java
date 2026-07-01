@@ -145,6 +145,21 @@ public class CandidatureController {
 	}
 
 
+	/** DELETE /api/candidatures/{id} — retrait d'une candidature par son propriétaire */
+	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@PreAuthorize("hasRole('EMPLOYEE')")
+	@Operation(
+			summary = "Retirer une candidature (propriétaire uniquement)",
+			parameters = {
+					@Parameter(name = "X-User-Id", in = ParameterIn.HEADER, required = true, example = "42"),
+					@Parameter(name = "X-Role",    in = ParameterIn.HEADER, required = true, example = "EMPLOYEE")
+			}
+	)
+	public void delete(@PathVariable Long id) {
+		candidatureService.deleteCandidature(id, currentSecurity.userId());
+	}
+
 	@PatchMapping("/{id}/cv")
 	@PreAuthorize("hasAnyRole('EMPLOYEE','RH')")
 	@Operation(

@@ -4,13 +4,8 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import tn.iteam.jobservice.jobs.api.dto.JobOfferCreateRequest;
 import tn.iteam.jobservice.jobs.api.dto.JobOfferResponse;
@@ -18,6 +13,7 @@ import tn.iteam.jobservice.jobs.api.dto.JobOfferUpdateRequest;
 import tn.iteam.jobservice.jobs.service.JobOfferService;
 
 import java.net.URI;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -44,5 +40,13 @@ public class JobOfferAdminController {
     public ResponseEntity<Void> delete(@PathVariable UUID id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    /** PATCH /api/admin/jobs/{id}/published — publier ou dépublier une offre (RH/ADMIN) */
+    @PatchMapping("/{id}/published")
+    @PreAuthorize("hasAnyAuthority('ROLE_RH','ROLE_ADMIN')")
+    public JobOfferResponse togglePublished(@PathVariable UUID id, @RequestBody Map<String, Boolean> body) {
+        boolean published = Boolean.TRUE.equals(body.get("published"));
+        return service.togglePublished(id, published);
     }
 }

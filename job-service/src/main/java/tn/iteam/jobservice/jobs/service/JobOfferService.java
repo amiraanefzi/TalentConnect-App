@@ -100,6 +100,19 @@ public class JobOfferService {
         repo.deleteById(id);
     }
 
+    @Transactional
+    public JobOfferResponse togglePublished(UUID id, boolean published) {
+        var entity = getEntity(id);
+        boolean wasPublished = entity.isPublished();
+        entity.setPublished(published);
+        if (!wasPublished && published) {
+            entity.setPublishedAt(Instant.now());
+        } else if (wasPublished && !published) {
+            entity.setPublishedAt(null);
+        }
+        return JobOfferMapper.toResponse(repo.save(entity));
+    }
+
     private JobOffer getEntity(UUID id) {
         return repo.findById(id).orElseThrow(() -> new NotFoundException("Job offer not found: " + id));
     }

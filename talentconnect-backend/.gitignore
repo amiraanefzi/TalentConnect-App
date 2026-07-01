@@ -1,5 +1,0 @@
-﻿target/
-*.jar
-*.class
-!mvnw
-!.mvn/**

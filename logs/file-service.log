@@ -1,0 +1,12 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2026-07-01T15:03:43.437+01:00  INFO 28424 --- [file-service] [           main] t.i.fileservice.FileServiceApplication   : Starting FileServiceApplication v1.0.0-SNAPSHOT using Java 25.0.2 with PID 28424 (C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App\file-service\target\file-service-1.0.0-SNAPSHOT.jar started by hyahyaoui in C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App)
+2026-07-01T15:03:43.455+01:00  INFO 28424 --- [file-service] [           main] t.i.fileservice.FileServiceApplication   : No active profile set, falling back to 1 default profile: "default"
