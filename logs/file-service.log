@@ -10,3 +10,37 @@
 
 2026-07-01T15:03:43.437+01:00  INFO 28424 --- [file-service] [           main] t.i.fileservice.FileServiceApplication   : Starting FileServiceApplication v1.0.0-SNAPSHOT using Java 25.0.2 with PID 28424 (C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App\file-service\target\file-service-1.0.0-SNAPSHOT.jar started by hyahyaoui in C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App)
 2026-07-01T15:03:43.455+01:00  INFO 28424 --- [file-service] [           main] t.i.fileservice.FileServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-07-01T15:03:55.493+01:00  INFO 28424 --- [file-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-01T15:03:55.822+01:00  INFO 28424 --- [file-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 286 ms. Found 1 JPA repository interface.
+2026-07-01T15:04:01.617+01:00  INFO 28424 --- [file-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-07-01T15:04:01.925+01:00  INFO 28424 --- [file-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-01T15:04:01.927+01:00  INFO 28424 --- [file-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-07-01T15:04:02.678+01:00  INFO 28424 --- [file-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-07-01T15:04:02.680+01:00  INFO 28424 --- [file-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 18995 ms
+2026-07-01T15:04:05.682+01:00  INFO 28424 --- [file-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-01T15:04:06.098+01:00  INFO 28424 --- [file-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-07-01T15:04:06.309+01:00  INFO 28424 --- [file-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-07-01T15:04:08.263+01:00  INFO 28424 --- [file-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-01T15:04:08.530+01:00  INFO 28424 --- [file-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-01T15:04:09.544+01:00  INFO 28424 --- [file-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c0fefac
+2026-07-01T15:04:09.549+01:00  INFO 28424 --- [file-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-01T15:04:10.079+01:00  WARN 28424 --- [file-service] [           main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-07-01T15:04:10.192+01:00  INFO 28424 --- [file-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.5.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-01T15:04:13.811+01:00  INFO 28424 --- [file-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-01T15:04:13.944+01:00  INFO 28424 --- [file-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-01T15:04:22.501+01:00  INFO 28424 --- [file-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2026-07-01T15:04:23.587+01:00  INFO 28424 --- [file-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2026-07-01T15:04:23.659+01:00  INFO 28424 --- [file-service] [           main] t.i.fileservice.FileServiceApplication   : Started FileServiceApplication in 42.759 seconds (process running for 45.379)
+2026-07-01T18:18:32.254+01:00  WARN 28424 --- [file-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m48s859ms510µs100ns).
+2026-07-01T19:51:03.744+01:00  WARN 28424 --- [file-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h29m48s874ms827µs800ns).
+2026-07-01T20:02:28.554+01:00  INFO 28424 --- [file-service] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-01T20:02:28.598+01:00  INFO 28424 --- [file-service] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-01T20:02:28.843+01:00  INFO 28424 --- [file-service] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 239 ms
+2026-07-02T07:59:03.449+01:00  WARN 28424 --- [file-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h46m24s239ms875µs300ns).

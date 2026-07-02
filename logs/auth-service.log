@@ -1,0 +1,1266 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2026-07-01T15:03:45.173+01:00  INFO 7760 --- [auth-service] [           main] t.i.authservice.AuthServiceApplication   : Starting AuthServiceApplication v1.0.0-SNAPSHOT using Java 25.0.2 with PID 7760 (C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App\auth-service\target\auth-service-1.0.0-SNAPSHOT.jar started by hyahyaoui in C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App)
+2026-07-01T15:03:45.211+01:00  INFO 7760 --- [auth-service] [           main] t.i.authservice.AuthServiceApplication   : No active profile set, falling back to 1 default profile: "dev"
+2026-07-01T15:03:58.404+01:00  INFO 7760 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-01T15:03:58.842+01:00  INFO 7760 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 409 ms. Found 1 JPA repository interface.
+2026-07-01T15:04:07.749+01:00  INFO 7760 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-07-01T15:04:07.804+01:00  INFO 7760 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-01T15:04:07.806+01:00  INFO 7760 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-07-01T15:04:07.926+01:00  INFO 7760 --- [auth-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-07-01T15:04:07.928+01:00  INFO 7760 --- [auth-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 21782 ms
+2026-07-01T15:04:10.030+01:00  INFO 7760 --- [auth-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-01T15:04:10.402+01:00  INFO 7760 --- [auth-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-07-01T15:04:10.565+01:00  INFO 7760 --- [auth-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-07-01T15:04:12.250+01:00  INFO 7760 --- [auth-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-01T15:04:12.454+01:00  INFO 7760 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-01T15:04:13.188+01:00  INFO 7760 --- [auth-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6144e499
+2026-07-01T15:04:13.193+01:00  INFO 7760 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-01T15:04:13.348+01:00  WARN 7760 --- [auth-service] [           main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-07-01T15:04:13.410+01:00  INFO 7760 --- [auth-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.5.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-01T15:04:19.810+01:00  INFO 7760 --- [auth-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: alter table user_roles modify column role enum ('ADMIN','EMPLOYE','RH') not null
+2026-07-01T15:04:21.233+01:00  INFO 7760 --- [auth-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-01T15:04:24.072+01:00  INFO 7760 --- [auth-service] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-01T15:04:25.021+01:00  INFO 7760 --- [auth-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-07-01T15:04:29.283+01:00  INFO 7760 --- [auth-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-01T15:04:32.624+01:00  INFO 7760 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-07-01T15:04:32.657+01:00  INFO 7760 --- [auth-service] [           main] t.i.authservice.AuthServiceApplication   : Started AuthServiceApplication in 51.088 seconds (process running for 54.386)
+Hibernate: select u1_0.id from users u1_0 where upper(u1_0.email)=upper(?) limit ?
+2026-07-01T17:19:08.570+01:00  INFO 7760 --- [auth-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-01T17:19:08.582+01:00  INFO 7760 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-01T17:19:08.612+01:00  INFO 7760 --- [auth-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 28 ms
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id from users u1_0 where upper(u1_0.email)=upper(?) limit ?
+Hibernate: SELECT COALESCE(MAX(CAST(SUBSTRING(employee_id, 5) AS UNSIGNED)), 0) FROM users WHERE employee_id LIKE 'EMP-%'
+Hibernate: select u1_0.id from users u1_0 where u1_0.employee_id=? limit ?
+Hibernate: insert into users (address,avatar_url,bio,created_at,department,email,employee_id,enabled,experience_years,experiences_json,first_name,formations_json,github_url,last_name,linkedin_url,location,password_hash,phone,title) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into user_roles (user_id,role) values (?,?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: update users set address=?,avatar_url=?,bio=?,department=?,email=?,employee_id=?,enabled=?,experience_years=?,experiences_json=?,first_name=?,formations_json=?,github_url=?,last_name=?,linkedin_url=?,location=?,password_hash=?,phone=?,title=? where id=?
+Hibernate: insert into user_languages (user_id,language) values (?,?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+2026-07-01T18:18:36.561+01:00  WARN 7760 --- [auth-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m48s894ms249µs600ns).
+2026-07-01T19:51:04.293+01:00  WARN 7760 --- [auth-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h29m48s413ms883µs100ns).
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+2026-07-01T20:32:22.208+01:00  INFO 7760 --- [auth-service] [nio-8081-exec-7] o.apache.tomcat.util.http.parser.Cookie  : A cookie header was received [${jndi:dns://MDEDiscoverya7e8cd1f5fCookie-8081}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-07-01T20:32:22.711+01:00  INFO 7760 --- [auth-service] [io-8081-exec-65] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/index.html?${jndi:dns://MDEDiscoverya7e8cd1f5fSeenInTheWildGet-8081} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:478) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-01T20:32:22.657+01:00  INFO 7760 --- [auth-service] [io-8081-exec-30] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/api/?${jndi:dns://MDEDiscoverya7e8cd1f5fSeenInTheWildGet-8081} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:478) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-01T20:32:22.579+01:00  INFO 7760 --- [auth-service] [io-8081-exec-57] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/api/v2/${jndi:dns://MDEDiscoverya7e8cd1f5fSeenInTheWildGet-8081} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:486) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-01T20:32:22.641+01:00  INFO 7760 --- [auth-service] [io-8081-exec-58] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/analytics/telemetry/ph/api/hyper/send?_c=${jndi:dns://MDEDiscoverya7e8cd1f5fVMwarevCenter-8081}&i=test ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:478) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-01T20:32:22.553+01:00  INFO 7760 --- [auth-service] [io-8081-exec-50] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/struts2-showcase/${jndi:dns://MDEDiscoverya7e8cd1f5fApacheStruts2-8081} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:486) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-01T20:32:22.461+01:00  INFO 7760 --- [auth-service] [io-8081-exec-46] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/js/?${jndi:dns://MDEDiscoverya7e8cd1f5fSeenInTheWildGet-8081} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:478) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-01T20:32:24.015+01:00  INFO 7760 --- [auth-service] [io-8081-exec-63] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/JSPWiki/wiki/${jndi:dns://MDEDiscoverya7e8cd1f5fApacheJspWiki-8081} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:486) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-07-01T20:32:26.259+01:00  INFO 7760 --- [auth-service] [io-8081-exec-22] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/?v=${jndi:dns://MDEDiscoverya7e8cd1f5fvPostParam-8081} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:478) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: update users set address=?,avatar_url=?,bio=?,department=?,email=?,employee_id=?,enabled=?,experience_years=?,experiences_json=?,first_name=?,formations_json=?,github_url=?,last_name=?,linkedin_url=?,location=?,password_hash=?,phone=?,title=? where id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: delete from user_roles where user_id=?
+Hibernate: delete from users where id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+2026-07-02T07:59:02.984+01:00  WARN 7760 --- [auth-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h46m23s771ms701µs700ns).
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,r1_0.user_id,r1_0.role,u1_0.title from users u1_0 left join user_roles r1_0 on u1_0.id=r1_0.user_id where u1_0.id=?
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: delete from user_skills where user_id=?
+Hibernate: insert into user_skills (user_id,skill) values (?,?)
+Hibernate: insert into user_skills (user_id,skill) values (?,?)
+Hibernate: insert into user_skills (user_id,skill) values (?,?)
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?
+Hibernate: select u1_0.id,u1_0.address,u1_0.avatar_url,u1_0.bio,u1_0.created_at,u1_0.department,u1_0.email,u1_0.employee_id,u1_0.enabled,u1_0.experience_years,u1_0.experiences_json,u1_0.first_name,u1_0.formations_json,u1_0.github_url,u1_0.last_name,u1_0.linkedin_url,u1_0.location,u1_0.password_hash,u1_0.phone,u1_0.title from users u1_0 where upper(u1_0.email)=upper(?)
+Hibernate: select s1_0.user_id,s1_0.skill from user_skills s1_0 where s1_0.user_id=?
+Hibernate: select r1_0.user_id,r1_0.role from user_roles r1_0 where r1_0.user_id=?
+Hibernate: select l1_0.user_id,l1_0.language from user_languages l1_0 where l1_0.user_id=?

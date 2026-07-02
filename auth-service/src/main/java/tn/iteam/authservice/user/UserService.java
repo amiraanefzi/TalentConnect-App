@@ -101,11 +101,16 @@ public class UserService {
         if (req.bio()              != null) user.setBio(req.bio());
         if (req.linkedinUrl()      != null) user.setLinkedinUrl(req.linkedinUrl());
         if (req.githubUrl()        != null) user.setGithubUrl(req.githubUrl());
-        if (req.languages()        != null) { user.getLanguages().clear(); user.getLanguages().addAll(req.languages()); }
-        if (req.skills()           != null) { user.getSkills().clear(); user.getSkills().addAll(req.skills()); }
-        if (req.formations()       != null) user.setFormationsJson(toJson(req.formations()));
-        if (req.experiences()      != null) user.setExperiencesJson(toJson(req.experiences()));
+        applyCollectionUpdates(user, req);
         return userRepository.save(user);
+    }
+
+    /** Mise à jour des champs de type collection — extrait pour limiter la complexité cognitive. */
+    private void applyCollectionUpdates(User user, UpdateProfileRequest req) {
+        if (req.languages()  != null) { user.getLanguages().clear(); user.getLanguages().addAll(req.languages()); }
+        if (req.skills()     != null) { user.getSkills().clear();    user.getSkills().addAll(req.skills()); }
+        if (req.formations() != null) user.setFormationsJson(toJson(req.formations()));
+        if (req.experiences() != null) user.setExperiencesJson(toJson(req.experiences()));
     }
 
     /** Conversion User → UserDto avec désérialisation JSON */

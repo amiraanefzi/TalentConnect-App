@@ -10,3 +10,37 @@
 
 2026-07-01T15:03:44.263+01:00  INFO 28832 --- [chatbot-service] [           main] t.i.c.ChatbotServiceApplication          : Starting ChatbotServiceApplication v1.0.0-SNAPSHOT using Java 25.0.2 with PID 28832 (C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App\chatbot-service\target\chatbot-service-1.0.0-SNAPSHOT.jar started by hyahyaoui in C:\Users\hyahyaoui\OneDrive - Sopra Steria\Desktop\PFA\TalentConnect-App)
 2026-07-01T15:03:44.267+01:00  INFO 28832 --- [chatbot-service] [           main] t.i.c.ChatbotServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-07-01T15:03:55.224+01:00  INFO 28832 --- [chatbot-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-01T15:03:55.622+01:00  INFO 28832 --- [chatbot-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 313 ms. Found 1 JPA repository interface.
+2026-07-01T15:04:01.631+01:00  INFO 28832 --- [chatbot-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2026-07-01T15:04:01.934+01:00  INFO 28832 --- [chatbot-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-01T15:04:01.952+01:00  INFO 28832 --- [chatbot-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-07-01T15:04:02.620+01:00  INFO 28832 --- [chatbot-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-07-01T15:04:02.623+01:00  INFO 28832 --- [chatbot-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 17933 ms
+2026-07-01T15:04:05.619+01:00  INFO 28832 --- [chatbot-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-01T15:04:06.178+01:00  INFO 28832 --- [chatbot-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-07-01T15:04:06.382+01:00  INFO 28832 --- [chatbot-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-07-01T15:04:08.356+01:00  INFO 28832 --- [chatbot-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-01T15:04:08.535+01:00  INFO 28832 --- [chatbot-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-07-01T15:04:09.373+01:00  INFO 28832 --- [chatbot-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@13662609
+2026-07-01T15:04:09.380+01:00  INFO 28832 --- [chatbot-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-07-01T15:04:09.556+01:00  WARN 28832 --- [chatbot-service] [           main] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-07-01T15:04:09.633+01:00  INFO 28832 --- [chatbot-service] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 5.5.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-01T15:04:13.755+01:00  INFO 28832 --- [chatbot-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-01T15:04:14.116+01:00  INFO 28832 --- [chatbot-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-01T15:04:22.672+01:00  INFO 28832 --- [chatbot-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2026-07-01T15:04:23.688+01:00  INFO 28832 --- [chatbot-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2026-07-01T15:04:23.729+01:00  INFO 28832 --- [chatbot-service] [           main] t.i.c.ChatbotServiceApplication          : Started ChatbotServiceApplication in 42.77 seconds (process running for 45.433)
+2026-07-01T18:18:31.959+01:00  WARN 28832 --- [chatbot-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m48s862ms145µs600ns).
+2026-07-01T19:51:04.192+01:00  WARN 28832 --- [chatbot-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h29m48s878ms332µs200ns).
+2026-07-01T20:46:10.859+01:00  INFO 28832 --- [chatbot-service] [nio-8083-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-01T20:46:10.885+01:00  INFO 28832 --- [chatbot-service] [nio-8083-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-01T20:46:10.973+01:00  INFO 28832 --- [chatbot-service] [nio-8083-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 83 ms
+2026-07-02T07:59:03.401+01:00  WARN 28832 --- [chatbot-service] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h46m24s240ms33µs800ns).

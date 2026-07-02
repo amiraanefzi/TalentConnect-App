@@ -34,17 +34,53 @@ public class JobSearchHandler {
 
         // ── Remote ──────────────────────────────────────────────────────────
         if (normalized.contains("remote") || normalized.contains("teletravail") || normalized.contains("a distance")) {
-            List<JobOfferSummary> offers = jobOfferClient.findRemote();
-            return buildResponse(offers, "offres en télétravail (remote)");
+            return buildResponse(jobOfferClient.findRemote(), "offres en télétravail (remote)");
         }
 
         // ── Stage / Intern ───────────────────────────────────────────────────
         if (normalized.contains("stage") || normalized.contains("intern") || normalized.contains("stagiaire")) {
-            List<JobOfferSummary> offers = jobOfferClient.findByEmploymentType("INTERN");
-            return buildResponse(offers, "stages disponibles");
+            return buildResponse(jobOfferClient.findByEmploymentType("INTERN"), "stages disponibles");
         }
 
         // ── Niveau d'expérience ──────────────────────────────────────────────
+        String experienceResponse = resolveByExperienceLevel(normalized);
+        if (experienceResponse != null) {
+            return experienceResponse;
+        }
+
+        // ── Localisation : villes connues ────────────────────────────────────
+        String location = detectLocation(normalized);
+        if (location != null) {
+            return buildResponse(jobOfferClient.findByLocation(location), "offres disponibles à " + capitalize(location));
+        }
+
+        // ── Contrat CDI / CDD / freelance ────────────────────────────────────
+        String contractResponse = resolveByContractType(normalized);
+        if (contractResponse != null) {
+            return contractResponse;
+        }
+
+        // ── Liste générale des offres ────────────────────────────────────────
+        if (normalized.contains("offre") || normalized.contains("poste") || normalized.contains("emploi")
+                || normalized.contains("job") || normalized.contains("disponible") || normalized.contains("publie")
+                || normalized.contains("recrut")) {
+            return buildResponse(jobOfferClient.findPublished(), "offres disponibles actuellement");
+        }
+
+        // ── Recherche par mot-clé technologique ──────────────────────────────
+        String techKeyword = detectTechKeyword(normalized);
+        if (techKeyword != null) {
+            return buildResponse(jobOfferClient.findByKeyword(techKeyword), "offres liées à " + techKeyword);
+        }
+
+        return null; // Pas une question sur les offres → déléguer au ChatbotEngine
+    }
+
+    /**
+     * Détecte et répond aux questions sur le niveau d'expérience.
+     * Extrait pour réduire la complexité cognitive de handle().
+     */
+    private String resolveByExperienceLevel(String normalized) {
         if (normalized.contains("junior")) {
             return buildKeywordResponse("junior", "offres Junior");
         }
@@ -57,48 +93,27 @@ public class JobSearchHandler {
         if (normalized.contains("lead") || normalized.contains("tech lead")) {
             return buildKeywordResponse("lead", "postes Tech Lead");
         }
+        return null;
+    }
 
-        // ── Localisation : villes connues ────────────────────────────────────
-        String location = detectLocation(normalized);
-        if (location != null) {
-            List<JobOfferSummary> offers = jobOfferClient.findByLocation(location);
-            return buildResponse(offers, "offres disponibles à " + capitalize(location));
-        }
-
-        // ── Contrat CDI / CDD / freelance ────────────────────────────────────
+    /**
+     * Détecte et répond aux questions sur le type de contrat.
+     * Extrait pour réduire la complexité cognitive de handle().
+     */
+    private String resolveByContractType(String normalized) {
         if (normalized.contains("cdi") || normalized.contains("temps plein") || normalized.contains("full time") || normalized.contains("fulltime")) {
-            List<JobOfferSummary> offers = jobOfferClient.findByEmploymentType("FULL_TIME");
-            return buildResponse(offers, "offres CDI / temps plein");
+            return buildResponse(jobOfferClient.findByEmploymentType("FULL_TIME"), "offres CDI / temps plein");
         }
         if (normalized.contains("cdd") || normalized.contains("temporaire")) {
-            List<JobOfferSummary> offers = jobOfferClient.findByEmploymentType("TEMPORARY");
-            return buildResponse(offers, "offres CDD / temporaires");
+            return buildResponse(jobOfferClient.findByEmploymentType("TEMPORARY"), "offres CDD / temporaires");
         }
         if (normalized.contains("freelance") || normalized.contains("contrat")) {
-            List<JobOfferSummary> offers = jobOfferClient.findByEmploymentType("CONTRACT");
-            return buildResponse(offers, "offres en contrat / freelance");
+            return buildResponse(jobOfferClient.findByEmploymentType("CONTRACT"), "offres en contrat / freelance");
         }
         if (normalized.contains("temps partiel") || normalized.contains("part time")) {
-            List<JobOfferSummary> offers = jobOfferClient.findByEmploymentType("PART_TIME");
-            return buildResponse(offers, "offres temps partiel");
+            return buildResponse(jobOfferClient.findByEmploymentType("PART_TIME"), "offres temps partiel");
         }
-
-        // ── Liste générale des offres ────────────────────────────────────────
-        if (normalized.contains("offre") || normalized.contains("poste") || normalized.contains("emploi")
-                || normalized.contains("job") || normalized.contains("disponible") || normalized.contains("publie")
-                || normalized.contains("recrut")) {
-            List<JobOfferSummary> offers = jobOfferClient.findPublished();
-            return buildResponse(offers, "offres disponibles actuellement");
-        }
-
-        // ── Recherche par mot-clé technologique ──────────────────────────────
-        String techKeyword = detectTechKeyword(normalized);
-        if (techKeyword != null) {
-            List<JobOfferSummary> offers = jobOfferClient.findByKeyword(techKeyword);
-            return buildResponse(offers, "offres liées à " + techKeyword);
-        }
-
-        return null; // Pas une question sur les offres → déléguer au ChatbotEngine
+        return null;
     }
 
     // ─── Helpers ─────────────────────────────────────────────────────────────

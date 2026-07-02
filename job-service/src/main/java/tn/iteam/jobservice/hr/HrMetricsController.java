@@ -55,7 +55,7 @@ public class HrMetricsController {
     private long safeCount(CountSupplier supplier, String metricName) {
         try {
             return supplier.get();
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             log.warn("Metric '{}' unavailable — returning 0. Cause: {}", metricName, e.getMessage());
             return 0L;
         }
@@ -63,6 +63,6 @@ public class HrMetricsController {
 
     @FunctionalInterface
     interface CountSupplier {
-        long get() throws Exception;
+        long get() throws RuntimeException;
     }
 }

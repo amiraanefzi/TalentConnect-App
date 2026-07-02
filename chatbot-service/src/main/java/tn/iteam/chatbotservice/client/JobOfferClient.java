@@ -17,6 +17,7 @@ import java.util.List;
 public class JobOfferClient {
 
     private static final Logger log = LoggerFactory.getLogger(JobOfferClient.class);
+    private static final String JOBS_API_PATH = "/api/jobs";
 
     private final RestTemplate restTemplate;
     private final String jobServiceBaseUrl;
@@ -31,7 +32,7 @@ public class JobOfferClient {
     /** Toutes les offres publiées (max 20). */
     public List<JobOfferSummary> findPublished() {
         return fetch(UriComponentsBuilder
-                .fromHttpUrl(jobServiceBaseUrl + "/api/jobs")
+                .fromHttpUrl(jobServiceBaseUrl + JOBS_API_PATH)
                 .queryParam("size", 20)
                 .toUriString());
     }
@@ -39,7 +40,7 @@ public class JobOfferClient {
     /** Offres par localisation. */
     public List<JobOfferSummary> findByLocation(String location) {
         return fetch(UriComponentsBuilder
-                .fromHttpUrl(jobServiceBaseUrl + "/api/jobs")
+                .fromHttpUrl(jobServiceBaseUrl + JOBS_API_PATH)
                 .queryParam("location", location)
                 .queryParam("size", 10)
                 .toUriString());
@@ -48,7 +49,7 @@ public class JobOfferClient {
     /** Offres remote uniquement. */
     public List<JobOfferSummary> findRemote() {
         return fetch(UriComponentsBuilder
-                .fromHttpUrl(jobServiceBaseUrl + "/api/jobs")
+                .fromHttpUrl(jobServiceBaseUrl + JOBS_API_PATH)
                 .queryParam("remote", true)
                 .queryParam("size", 10)
                 .toUriString());
@@ -57,7 +58,7 @@ public class JobOfferClient {
     /** Offres par type de contrat (FULL_TIME, PART_TIME, CONTRACT, INTERN, TEMPORARY). */
     public List<JobOfferSummary> findByEmploymentType(String employmentType) {
         return fetch(UriComponentsBuilder
-                .fromHttpUrl(jobServiceBaseUrl + "/api/jobs")
+                .fromHttpUrl(jobServiceBaseUrl + JOBS_API_PATH)
                 .queryParam("employmentType", employmentType)
                 .queryParam("size", 10)
                 .toUriString());
@@ -66,7 +67,7 @@ public class JobOfferClient {
     /** Offres par mot-clé (titre, description, entreprise). */
     public List<JobOfferSummary> findByKeyword(String keyword) {
         return fetch(UriComponentsBuilder
-                .fromHttpUrl(jobServiceBaseUrl + "/api/jobs")
+                .fromHttpUrl(jobServiceBaseUrl + JOBS_API_PATH)
                 .queryParam("q", keyword)
                 .queryParam("size", 10)
                 .toUriString());
